@@ -82,6 +82,9 @@ let g:indentLine_enabled = 1
 let g:autopep8_disable_show_diff=1
 
 
+"nerdCommenter
+map <F4> <leader>ci <CR>
+
 "------------------------------------------
 
 
