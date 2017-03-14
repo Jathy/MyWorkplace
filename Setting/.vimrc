@@ -1,7 +1,7 @@
-"-------------------------------vim base setting------------------------------
-
+"-------------------------------vim base setting---------------------------
+syntax enable
 syntax on	"highlight
-set wrap	"auto switch line
+set nowrap	"auto switch line
 set number	"display line number
 
 set incsearch 	"display the result when searching
@@ -36,11 +36,10 @@ nnoremap <space> za
 set splitbelow
 set splitright
 "split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-j> <C-W><C-J>
+"nnoremap <C-l> <C-W><C-L>
 
 "---------------------------------------------------------------------------
-
 
 
 
@@ -74,16 +73,45 @@ let NERDTreeWinSize=25
 "simpylFold
 let g:SimpylFold_docstring_preview = 1
 
+
 "缩进指示线"
 let g:indentLine_char='┆'
 let g:indentLine_enabled = 1
 
-""autopep8设置"
+
+"autopep8设置"
 let g:autopep8_disable_show_diff=1
 
 
+"tarbar
+map <F1> :TagbarToggle<CR>
+
+"color scheme setting
+"colorscheme molokai
+let g:molokai_original = 1
+"let g:rehash256 = 1
+"solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_constant="normal"
+let g:solarized_visibility="normal"
+set background=light
+"set background=dark
+set t_Co=256
+colorscheme molokai
+"colorscheme solarized
+
 "nerdCommenter
 map <F4> <leader>ci <CR>
+
+
+"rainbow_parentheses
+let g:rbpt_colorpairs = [ ['brown', 'RoyalBlue3'], ['Darkblue', 'SeaGreen3'], ['darkgray', 'DarkOrchid3'], ['darkgreen', 'firebrick3'],['darkcyan', 'RoyalBlue3'],['darkred', 'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['brown', 'firebrick3'],['gray', 'RoyalBlue3'],['black',       'SeaGreen3'],['darkmagenta', 'DarkOrchid3'],['Darkblue',  'firebrick3'],['darkgreen', 'RoyalBlue3'],['darkcyan', 'SeaGreen3'],['darkred', 'DarkOrchid3'],['red', 'firebrick3'] ]
+let g:rbpt_max = 16
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 "------------------------------------------
 
@@ -128,6 +156,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
