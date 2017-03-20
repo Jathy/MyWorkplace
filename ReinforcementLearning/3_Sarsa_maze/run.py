@@ -20,7 +20,7 @@ def update():
             observation_, reward, done = env.step(action)
 
             # RL choose action based on observation
-            action_ = RL.choose_action(str(observation))
+            action_ = RL.choose_action(str(observation_))
             
             # RL learn from this tranistion
             RL.learn(str(observation), action, reward, str(observation_), action_)
