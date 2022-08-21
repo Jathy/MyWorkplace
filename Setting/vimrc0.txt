@@ -1,0 +1,122 @@
+"""""""""""""""""""""""""""""""""""
+" Global Setting "
+"""""""""""""""""""""""""""""""""""
+" Compatible function close
+set nocompatible
+
+" Syntax highlight
+syntax on
+
+
+" Highlight for search
+set hlsearch
+
+" The cursor immediately jumps to the search to the content
+set incsearch
+
+" Ignore case for search
+set ignorecase 
+
+" Disable highlighting when the cursor remains stationary for a period of time
+autocmd cursorhold * set nohlsearch
+
+" Active the use of the Mouse
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+
+
+"""""""""""""""""""""""""""""""""""
+" Edit Setting "
+"""""""""""""""""""""""""""""""""""
+" Auto indent of Tab setting
+set tabstop=4
+set expandtab
+
+" Auto Indent setting
+set autoindent
+
+" Auto indent of Space Setting
+set shiftwidth=4
+
+" Backspace deletes 4 spaces at a time
+set softtabstop=4
+autocmd FileType make set noexpandtab
+
+" According to the above matching format
+set smartindent
+
+" Let the Backpace key delete characters forward
+set backspace=indent,eol,start
+
+
+"""""""""""""""""""""""""""""""""""
+" Encoding Setting "
+"""""""""""""""""""""""""""""""""""
+" Prevent Chinese comments from garbled characters
+set encoding=utf-8
+set fenc=utf-8
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936,big－5
+set enc=utf-8
+let &termencoding=&encoding
+
+" File encoding setting
+set fileencoding=utf-8 
+
+
+""""""""""""""""""""""""""""""""""
+" Vim Interface Setting "
+""""""""""""""""""""""""""""""""""
+" Color Schme Setting
+colorscheme desert
+
+" Show Line number 
+set nu
+
+" When editing, to show the cursor position in lower right corner
+set ruler
+
+" Highlight matching brackets
+set showmatch
+
+" Show command line
+set showcmd
+
+
+""""""""""""""""""""""""""""""""""
+" Self-Shortcut Setting "
+""""""""""""""""""""""""""""""""""
+" Windows Switch
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Copy 
+vmap <C-c>  +y
+
+" Multi-line Comment
+vnoremap <C-m> I//<ESC><ESC>
+
+
+""""""""""""""""""""""""""""""""
+" File Header Setting "
+""""""""""""""""""""""""""""""""
+" Create new file insert file header autimatically
+autocmd BufNewFile *.v, exec ":call SetTitle()"
+
+" SetTitle Fuction to insert info or file header"
+func SetTitle()
+    if expand ("%:e") == 'v'
+        call setline(1, "/****************************/")
+        call setline(2, "/*Author:XXX*/")
+		call setline(3, "/****************************/")
+    endif
+endfunc
+
+
+"""""""""""""""""""""""""""""
+" Other Setting "
+"""""""""""""""""""""""""""""
+
+
