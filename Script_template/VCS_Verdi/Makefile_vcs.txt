@@ -1,0 +1,50 @@
+.PHONY: com sim cov clean
+
+OUTPUT = simv_xxx_module
+
+# Define
+ALL_DEFINE = +define+DUMP_VPD		
+ALL_DEFINE += +define+DFF_STYLE2	
+
+# Code Coverage command
+CM = -cm line+cond+fsm+branch+tgl
+CM_NAME = -cm_name $(OUTPUT)
+CM_DIR = -cm_dir ./$(OUTPUT).vdb
+
+# VPD file name
+VPD_NAME = +vpdfile+$(OUTPUT).vpd
+
+# Compile command
+VCS = vcs -sverilog +2vk -timescale=1ns/1ns		\
+		-debug_all								\
+		+notimingcheck							\
+		+nospecify								\
+		+vcs+flush+all							\
+		$(CM)									\
+		$(CM_NAME)								\
+		$(ALL_DEFINE)							\
+		-o $(OUTPUT)							\
+		-l compile.log							
+
+# Simulation command
+SIM = ./$(OUTPUT)					\
+		$(CM) $(CM_NAME) $(CM_DIR)	\
+		-l $(OUTPUT).log
+		
+# Start compile
+com: 
+		$(VCS) -f file_list.f
+
+# Start simulation
+sim:
+		$(SIM) 
+		
+# Show the coverage
+conv:
+		dve -condir *vdb &
+debug: 
+		dve -vpd $(OUTPUT).vpd & 
+
+# Start clean
+clean:
+		rm -rf ./csrc *.daidir ./csrc *.log *.vpd *.vdb *.simv *.key

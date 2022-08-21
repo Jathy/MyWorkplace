@@ -1,0 +1,16 @@
+echo "***************************************************"
+echo "*************Start load synopsys-dc.setup**********"
+echo "***************************************************"
+
+set SYN_ROOT_PATH 	/home/xxx/xxx/proj
+set RTL_PATH 		$SYN_ROOT_PATH/rtl
+set CONFIG_PATH 	$SYN_ROOT_PATH/config  
+set SCRIPT_PATH 	$SYN_ROOT_PATH/script 
+set MAPPED_PATH 	$SYN_ROOT_PATH/mapped 
+set REPORT_PATH 	$SYN_ROOT_PATH/report 
+set UNMAPPED_PATH 	$SYN_ROOT_PATH/unmapped
+
+# Define work directory
+set WORK_PATH		/home/xxx/xxx/proj/work
+set DC_PATH			/eda/synopsys/syn/xxx
+define_design_lib work -path $WORK_PATH 
