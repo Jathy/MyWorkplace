@@ -116,7 +116,22 @@ endfunc
 
 
 """""""""""""""""""""""""""""
-" Other Setting "
+" Netrw Setting "
 """""""""""""""""""""""""""""
+" Style of the list: tree
+let g:netrw_liststyle = 3
 
+" Set the banner display 
+let g:netrw_banner = 0
 
+" When splitting horizontally, the file browser is always displayed on the left
+let g:netrw_altv = 1
+
+" Set the file browser window width: 25%
+let g:netw_winsize = 25
+
+" Automatically open file browser
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * :Vexplore
+augroup END
