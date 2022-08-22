@@ -49,6 +49,9 @@ set smartindent
 " Let the Backpace key delete characters forward
 set backspace=indent,eol,start
 
+" Display invisible characters
+set list
+set listchars=tab:>-
 
 """""""""""""""""""""""""""""""""""
 " Encoding Setting "
@@ -135,3 +138,4 @@ augroup ProjectDrawer
     autocmd!
     autocmd VimEnter * :Vexplore
 augroup END
+
